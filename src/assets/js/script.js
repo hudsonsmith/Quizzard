@@ -3,7 +3,7 @@
 localStorage.clear();
 
 if (! localStorage.getItem("quiz-data")) {
-    localStorage.setItem("quiz-data", {})
+    localStorage.setItem("quiz-data", JSON.stringify({}))
 }
 
 const newQuizForm = document.getElementById("newQuizForm");
