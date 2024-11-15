@@ -21,13 +21,45 @@
                     <hr>
                     <p class="quote"><i>"Success is not final, failure is not fatal: It is the courage to continue that counts." — Winston Churchill</i></p>
                     <hr>
-                    <button id="new-quiz">New quiz</button>
+                    <button id="newQuiz">New quiz</button>
+
+                    <cta-modal>
+
+                      <div slot="button">
+                        <p>
+                          <button
+                            class="cta-modal-toggle"
+                            type="button"
+                          >Open modal</button>
+                        </p>
+                      </div>
+
+                      <div slot="modal">
+                        <h2>New Quiz</h2>
+                        <form action="/newquiz" method="post" id="newQuizForm">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required><br><br>
+
+                            <button type="submit">Submit</button>
+
+                            <p>
+                              <button
+                                class="cta-modal-toggle"
+                                type="button"
+                              >Cancel</button>
+                            </p>
+                        </form>
+                      </div>
+
+                    </cta-modal>
+
                 </div>
             </div>
         </div>
     </div>
 
     <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/cta-modal.js"></script>
 </body>
 </html>
 
