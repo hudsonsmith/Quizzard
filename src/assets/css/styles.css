@@ -1,0 +1,64 @@
+/* 
+ *
+ *
+ * Spash screen
+ *
+ *
+ *
+ */
+.splash-screen {
+    display: grid;            /* Enables Grid Layout */
+    place-items: center;      /* Centers both vertically and horizontally */
+    height: 100vh;
+}
+
+.splash-screen h1 {
+    font-size: 5rem; /* 1.5 times the base font size (24px) */
+    margin: 0px;
+}
+
+.splash-screen .quote {
+    font-size: 1.5rem; /* 1.5 times the base font size (24px) */
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+
+
+
+
+html, body {
+    height: 100%;    /* Ensures the body and html take up the full viewport height */
+    margin: 0;       /* Remove default margin */
+    padding: 0;      /* Remove default padding */
+}
+
+* {
+    box-sizing: border-box;   /* Ensures padding and borders are included in width and height */
+}
+
+
+.gradient-h1 {
+    font-family: Roboto;
+    font-weight: bold;                /* Optional: bold text */
+    background: linear-gradient(to right, red, blue);  /* Gradient colors */
+    -webkit-background-clip: text;    /* Required for WebKit-based browsers (Chrome, Safari) */
+    background-clip: text;            /* Standard property for Firefox and others */
+    color: transparent;               /* Makes text color transparent so the background is visible */
+}
+
+.container {
+    display: flex;
+    height: 100vh;                /* Full height of the viewport */
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;                 /* Fixed width for the sidebar */
+    background-color: #f4f4f4;    /* Optional: Sidebar background */
+}
+
+/* Main content styles */
+.main-content {
+    flex-grow: 1;                 /* Makes this div take up the remaining space */
+}
