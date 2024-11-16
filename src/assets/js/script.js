@@ -6,9 +6,9 @@ localStorage.clear();
 // Method that adds new quizzes to the quiz list.
 // Just a little fake event listener that gets called 
 // after the form is submitted.
-const appendToQuizList = (localStorageKey, quizName) => {
+const appendToQuizList = (localStorageKey, quizId) => {
     // The quiz sidebar.
-    const domSidebar = getElementById("sidebar");
+    const domSidebar = document.getElementById("quizList");
 
     // Local storage JSON stuff.
     // ^ lol, this is the most unhelpful comment ever.
@@ -17,21 +17,23 @@ const appendToQuizList = (localStorageKey, quizName) => {
     // Gets the quizData localStorageKey (made it a param because I
     // might change key name in localStorage later).
     // Then, it parses the JSON string into an object.
-    const quizData = JSON.parse(localStorage.getItem(localStorageKey))[quizName];
+    const quizData = JSON.parse(localStorage.getItem(localStorageKey))[quizId];
 
 
     /* Create new quiz "thing," I'm really unsure what to call this,
     but I know that it will appear in the sidebar, and that the user should
     be able to click it, *BUT* I don't want to make it a button, because
     I would have to remove the styles and stuff.
-    For now, I'll just do a paragraph with an onclick */
+    For now, I'll just do a paragraph with an onclick 
 
-    const newSelector = document.createElement("p");
+    TLDR: JUST ADDING THE QUIZ TO THE SIDEBAR FOR THE USER TO SEE.
+        */
 
+    const newSelector = document.createElement("li");
     newSelector.textContent = quizData["name"];
-    
 
-    quizList.append(newSelector);
+    // Finally append it.
+    domSidebar.append(newSelector);
 }
 
 
@@ -50,6 +52,14 @@ newQuizForm.addEventListener("submit", (event) => {
 
     // Get the fields from the form.
     let name = newQuizForm.elements["name"].value;
+
+    // If the name is empty.
+    // Wait, OMG CTA-MODAL already handles this.
+    //
+    // if (! name.trim()) {
+    // alert("Name cannot be empty!");
+    // }
+
     let quizData = JSON.parse(localStorage.getItem("quiz-data"));
 
     // Store the data in localstorage
@@ -64,8 +74,12 @@ newQuizForm.addEventListener("submit", (event) => {
     // }
     const uuid = crypto.randomUUID();
 
-    quizData[uuid] = {"name": "Hello", "questions": ["hey"]};
+
+    quizData[uuid] = {"name": name, "questions": ["hey"]};
+
+    console.log(quizData);
+
     localStorage.setItem("quiz-data", JSON.stringify(quizData));
 
-    appendToQuizList();
+    appendToQuizList("quiz-data", uuid);
 });
