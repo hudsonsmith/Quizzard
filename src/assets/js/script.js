@@ -1,6 +1,6 @@
 // Just for testing.
 // TODO: REMOVE
-localStorage.clear();
+// localStorage.clear();
 
 // ====================================================
 // Constants
@@ -8,12 +8,16 @@ localStorage.clear();
 // This one is pretty simple, it's just the name of the
 // localStorage key that holds the quiz hashTable.
 const LOCAL_STORAGE_QUIZZES_KEY = "quizzes";
+const SPLASH_SCREEN = document.getElementById("splash-screen");
+const QUIZ_PAGE = document.getElementById("quiz-page");
+const QUIZ_LIST = document.getElementById("quizList");
+const NEW_QUIZ_FORM = document.getElementById("newQuizForm");
 
 
 // Open quiz and edit the main content to reflect page changes.
 const openQuiz = (event) => {
     // Hide the current splash screen.
-    const splashScreen = document.getElementById("splash-screen");
+    const splashScreen = SPLASH_SCREEN;
     splashScreen.style.visibility = "hidden";
 
     // Fetch the quiz from the local storage.
@@ -22,7 +26,7 @@ const openQuiz = (event) => {
 
     // Create new div that will replace the splash screen.
     // REMINDER TO SELF: REMEMBER THIS VAR NAME!
-    const quizPage = document.getElementById("quiz-page");
+    const quizPage = QUIZ_PAGE;
     console.log(quizPage);
     quizPage.style.visibility = "visible";
 
@@ -37,7 +41,7 @@ const openQuiz = (event) => {
 // after the form is submitted.
 const appendToQuizList = (uuid) => {
     // The quiz sidebar.
-    const domSidebar = document.getElementById("quizList");
+    const domSidebar = QUIZ_LIST;
 
     // Local storage JSON stuff.
     // ^ lol, this is the most unhelpful comment ever.
@@ -80,7 +84,7 @@ if (! localStorage.getItem("quiz-data")) {
 }
 
 // Get the element.
-const newQuizForm = document.getElementById("newQuizForm");
+const newQuizForm = NEW_QUIZ_FORM;
 
 // Listen to the form.
 newQuizForm.addEventListener("submit", (event) => {
@@ -119,4 +123,19 @@ newQuizForm.addEventListener("submit", (event) => {
     localStorage.setItem(LOCAL_STORAGE_QUIZZES_KEY, JSON.stringify(quizData));
 
     appendToQuizList(uuid);
+});
+
+
+// Load the quizzes into the list element.
+const loadQuizzes = () => {
+    const quizzes = JSON.parse(localStorage.getItem(LOCAL_STORAGE_QUIZZES_KEY));
+
+    for (const uuid in quizzes) {
+        console.log(`uuid: ${uuid}`)
+        appendToQuizList(uuid);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadQuizzes();
 });
