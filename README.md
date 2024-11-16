@@ -4,6 +4,8 @@
 
 # Quizzard 🧙‍♂️
 
+Serverless quiz app!
+
 <hr>
 
 </div>
