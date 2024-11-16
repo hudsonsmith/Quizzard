@@ -18,3 +18,4 @@ Features that WILL be implemented:
 - [x] Navigation Buttons (Kinda Done)
 
 (Emoji Credit: https://github.com/microsoft/fluentui-emoji)
+(Uses DRACULA THEME!!! https://draculatheme.com/)
