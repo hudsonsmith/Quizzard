@@ -10,9 +10,24 @@ localStorage.clear();
 const LOCAL_STORAGE_QUIZZES_KEY = "quizzes";
 
 
-const openQuiz = event => {
+// Open quiz and edit the main content to reflect page changes.
+const openQuiz = (event) => {
+    // Hide the current splash screen.
+    const splashScreen = document.getElementById("splash-screen");
+    splashScreen.style.visibility = "hidden";
+
+    // Fetch the quiz from the local storage.
     const uuid = event.target.getAttribute("uuid");
     const quiz = JSON.parse(localStorage.getItem(LOCAL_STORAGE_QUIZZES_KEY))[uuid];
+
+    // Create new div that will replace the splash screen.
+    // REMINDER TO SELF: REMEMBER THIS VAR NAME!
+    const quizPage = document.getElementById("quiz-page");
+    console.log(quizPage);
+    quizPage.style.visibility = "visible";
+
+    quizPage.querySelector("#quiz-page-name").innerText = quiz["name"];
+
     console.log(quiz);
 }
 
