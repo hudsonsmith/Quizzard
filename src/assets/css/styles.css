@@ -36,6 +36,7 @@ html, body {
     height: 100%;    /* Ensures the body and html take up the full viewport height */
     margin: 0;       /* Remove default margin */
     padding: 0;      /* Remove default padding */
+    background-color: #282A36;
 }
 
 * {
@@ -60,8 +61,8 @@ html, body {
 /* Sidebar styles */
 #sidebar {
     width: 250px;                 /* Fixed width for the sidebar */
-    background-color: #fff;    /* Optional: Sidebar background */
-    border-right: solid .4rem #000;
+    background-color: #282A36;    /* Optional: Sidebar background */
+    border-right: solid .4rem #44475A;
 }
 
 /* Main content styles */
