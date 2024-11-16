@@ -2,11 +2,11 @@
 
 <hr>
 
-![IMG](./src/assets/img/image.png)
+# Quizzard 🧙‍♂️
 
 <hr>
-</div>
 
+</div>
 
 Features that WILL be implemented:
 
