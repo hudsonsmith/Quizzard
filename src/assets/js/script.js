@@ -2,11 +2,25 @@
 // TODO: REMOVE
 localStorage.clear();
 
+// ====================================================
+// Constants
+// ====================================================
+// This one is pretty simple, it's just the name of the
+// localStorage key that holds the quiz hashTable.
+const LOCAL_STORAGE_QUIZZES_KEY = "quizzes";
+
+
+const openQuiz = event => {
+    const uuid = event.target.getAttribute("uuid");
+    const quiz = JSON.parse(localStorage.getItem(LOCAL_STORAGE_QUIZZES_KEY))[uuid];
+    console.log(quiz);
+}
+
 
 // Method that adds new quizzes to the quiz list.
 // Just a little fake event listener that gets called 
 // after the form is submitted.
-const appendToQuizList = (localStorageKey, quizId) => {
+const appendToQuizList = (uuid) => {
     // The quiz sidebar.
     const domSidebar = document.getElementById("quizList");
 
@@ -17,7 +31,7 @@ const appendToQuizList = (localStorageKey, quizId) => {
     // Gets the quizData localStorageKey (made it a param because I
     // might change key name in localStorage later).
     // Then, it parses the JSON string into an object.
-    const quizData = JSON.parse(localStorage.getItem(localStorageKey))[quizId];
+    const quizData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_QUIZZES_KEY))[uuid];
 
 
     /* Create new quiz "thing," I'm really unsure what to call this,
@@ -30,7 +44,15 @@ const appendToQuizList = (localStorageKey, quizId) => {
         */
 
     const newSelector = document.createElement("li");
+    
+    // Add properties that will passed onclick.
+    newSelector.setAttribute("uuid", uuid);
+
+    // Set the text.
     newSelector.textContent = quizData["name"];
+
+    // Add an event listener.
+    newSelector.addEventListener("click", openQuiz);
 
     // Finally append it.
     domSidebar.append(newSelector);
@@ -79,7 +101,7 @@ newQuizForm.addEventListener("submit", (event) => {
 
     console.log(quizData);
 
-    localStorage.setItem("quiz-data", JSON.stringify(quizData));
+    localStorage.setItem(LOCAL_STORAGE_QUIZZES_KEY, JSON.stringify(quizData));
 
-    appendToQuizList("quiz-data", uuid);
+    appendToQuizList(uuid);
 });
