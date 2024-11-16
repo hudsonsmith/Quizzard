@@ -1,4 +1,4 @@
-<div style="center">
+<div align="center">
 
 # StudyApp
 
