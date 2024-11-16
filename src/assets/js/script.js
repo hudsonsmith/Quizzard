@@ -28,7 +28,7 @@ if (! localStorage.getItem(LOCAL_STORAGE_QUIZZES_KEY)) {
 const openQuiz = (uuid) => {
     // Hide the current splash screen.
     const splashScreen = SPLASH_SCREEN;
-    splashScreen.style.visibility = "hidden";
+    splashScreen.style.display = "none";
 
     // Fetch the quiz from the local storage.
     const quiz = JSON.parse(localStorage.getItem(LOCAL_STORAGE_QUIZZES_KEY))[uuid];
@@ -37,7 +37,7 @@ const openQuiz = (uuid) => {
     // REMINDER TO SELF: REMEMBER THIS VAR NAME!
     const quizPage = QUIZ_PAGE;
     console.log(quizPage);
-    quizPage.style.visibility = "visible";
+    quizPage.style.display = "block";
 
     quizPage.querySelector("#quiz-page-name").innerText = quiz["name"];
     quizPage.querySelector("#quiz-page-questions").innerText = "questions here."
@@ -140,6 +140,11 @@ newQuizForm.addEventListener("submit", (event) => {
     openQuiz(uuid);
 });
 
+
+const backToHome = () => {
+    QUIZ_PAGE.style.display = "none";
+    SPLASH_SCREEN.style.display = "";
+}
 
 // Load the quizzes into the list element.
 const loadQuizzes = () => {

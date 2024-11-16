@@ -15,5 +15,6 @@ Features that WILL be implemented:
 - [ ] Editing Quizzes
 - [x] Opening Quizzes
 - [x] Creating Quizzes
+- [x] Navigation Buttons (Kinda Done)
 
 (Emoji Credit: https://github.com/microsoft/fluentui-emoji)
