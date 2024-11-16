@@ -9,19 +9,28 @@
 // localStorage key that holds the quiz hashTable.
 const LOCAL_STORAGE_QUIZZES_KEY = "quizzes";
 const SPLASH_SCREEN = document.getElementById("splash-screen");
+
 const QUIZ_PAGE = document.getElementById("quiz-page");
 const QUIZ_LIST = document.getElementById("quizList");
+
 const NEW_QUIZ_FORM = document.getElementById("newQuizForm");
+const NEW_QUIZ_MODAL = document.getElementById("new-quiz-modal");
+
+// Set the base structure if one doesn't exist already.
+// Important, because if the localStorage is initially empty
+// Or the user clears cache, etc, it's gonna need a base structure.
+if (! localStorage.getItem(LOCAL_STORAGE_QUIZZES_KEY)) {
+    localStorage.setItem(LOCAL_STORAGE_QUIZZES_KEY, JSON.stringify({}))
+}
 
 
 // Open quiz and edit the main content to reflect page changes.
-const openQuiz = (event) => {
+const openQuiz = (uuid) => {
     // Hide the current splash screen.
     const splashScreen = SPLASH_SCREEN;
     splashScreen.style.visibility = "hidden";
 
     // Fetch the quiz from the local storage.
-    const uuid = event.target.getAttribute("uuid");
     const quiz = JSON.parse(localStorage.getItem(LOCAL_STORAGE_QUIZZES_KEY))[uuid];
 
     // Create new div that will replace the splash screen.
@@ -31,10 +40,17 @@ const openQuiz = (event) => {
     quizPage.style.visibility = "visible";
 
     quizPage.querySelector("#quiz-page-name").innerText = quiz["name"];
+    quizPage.querySelector("#quiz-page-questions").innerText = "questions here."
 
     console.log(quiz);
 }
 
+
+// Wrapper around openQuiz, so that openQuiz can be called from the code, and
+// openQuizEvent can get the uuid and pass it to openquiz, so it doesn't get angry.
+const openQuizEvent = (event) => {
+    openQuiz(event.target.getAttribute("uuid"));
+}
 
 // Method that adds new quizzes to the quiz list.
 // Just a little fake event listener that gets called 
@@ -71,17 +87,13 @@ const appendToQuizList = (uuid) => {
     newSelector.textContent = quizData["name"];
 
     // Add an event listener.
-    newSelector.addEventListener("click", openQuiz);
+    newSelector.addEventListener("click", openQuizEvent);
 
     // Finally append it.
     domSidebar.append(newSelector);
 }
 
 
-// Set the base structure if one doesn't exist already.
-if (! localStorage.getItem("quiz-data")) {
-    localStorage.setItem("quiz-data", JSON.stringify({}))
-}
 
 // Get the element.
 const newQuizForm = NEW_QUIZ_FORM;
@@ -101,7 +113,7 @@ newQuizForm.addEventListener("submit", (event) => {
     // alert("Name cannot be empty!");
     // }
 
-    let quizData = JSON.parse(localStorage.getItem("quiz-data"));
+    let quizData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_QUIZZES_KEY));
 
     // Store the data in localstorage
     // Just test data for now.
@@ -123,6 +135,9 @@ newQuizForm.addEventListener("submit", (event) => {
     localStorage.setItem(LOCAL_STORAGE_QUIZZES_KEY, JSON.stringify(quizData));
 
     appendToQuizList(uuid);
+
+    NEW_QUIZ_MODAL.setAttribute("active", "false");
+    openQuiz(uuid);
 });
 
 
@@ -133,6 +148,14 @@ const loadQuizzes = () => {
     for (const uuid in quizzes) {
         console.log(`uuid: ${uuid}`)
         appendToQuizList(uuid);
+    }
+}
+
+const clearQuizzes = () => {
+    localStorage.removeItem(LOCAL_STORAGE_QUIZZES_KEY);
+
+    for (const item in QUIZ_LIST.children) {
+        console.log(item);
     }
 }
 
