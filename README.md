@@ -7,5 +7,5 @@
 Features that WILL be implemented:
 
 - [ ] Editing Quizzes
-- [ ] Opening Quizzes
+- [x] Opening Quizzes
 - [x] Creating Quizzes
