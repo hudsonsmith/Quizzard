@@ -29,7 +29,7 @@ const openQuiz = (uuid) => {
     // Create new div that will replace the splash screen.
     // REMINDER TO SELF: REMEMBER THIS VAR NAME!
     console.log(constants.QUIZ_PAGE);
-    quizPage.style.display = "block";
+    constants.QUIZ_PAGE.style.display = "block";
 
     constants.QUIZ_PAGE.querySelector("#quiz-page-name").innerText = quiz["name"];
     constants.QUIZ_PAGE.querySelector("#quiz-page-questions").innerText = "questions here."
