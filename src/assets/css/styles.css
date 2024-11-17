@@ -6,6 +6,52 @@
  *
  *
  */
+
+
+/* Dracula colorscheme. */
+:root {
+    --color-background: #282A36;
+    --color-current-line: #44475A;
+    --color-foreground: #F8F8F2;
+    --color-comment: #6272A4;
+    --color-cyan: #8BE9FD;
+    --color-green: #50FA7B;
+    --color-orange: #FFB86C;
+    --color-pink: #FF79C6;
+    --color-purple: #BD93F9;
+    --color-red: #FF5555;
+    --color-yellow: #F1FA8C;
+}
+
+
+
+
+
+ .button-container {
+    display: flex;
+    gap: 2rem;
+}
+.button-container .button-85 {
+    height: 2rem;
+    margin: 0;
+}
+
+
+#new-quiz-modal {
+    margin: 0px;
+}
+
+
+
+.quote {
+    font-family: serif;
+    color: var(--color-foreground);
+}
+
+.quote-author {
+    color: var(--color-cyan);
+}
+
 #splash-screen {
     display: grid;            /* Enables Grid Layout */
     place-items: center;      /* Centers both vertically and horizontally */
@@ -37,6 +83,7 @@ html, body {
     margin: 0;       /* Remove default margin */
     padding: 0;      /* Remove default padding */
     background-color: #282A36;
+    font-family: Roboto, sans-serif;
 }
 
 * {
@@ -45,12 +92,8 @@ html, body {
 
 
 .gradient-h1 {
-    font-family: Roboto;
     font-weight: bold;                /* Optional: bold text */
-    background: linear-gradient(to right, red, blue);  /* Gradient colors */
-    -webkit-background-clip: text;    /* Required for WebKit-based browsers (Chrome, Safari) */
-    background-clip: text;            /* Standard property for Firefox and others */
-    color: transparent;               /* Makes text color transparent so the background is visible */
+    color: var(--color-cyan);
 }
 
 .container {
