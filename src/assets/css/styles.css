@@ -24,16 +24,15 @@
 }
 
 
-
-
-
- .button-container {
+.button-container {
     display: flex;
     gap: 2rem;
+    justify-content: center;
 }
+
 .button-container .button-85 {
     height: 2rem;
-    margin: 0;
+    width: 30rem;
 }
 
 
@@ -82,7 +81,7 @@ html, body {
     height: 100%;    /* Ensures the body and html take up the full viewport height */
     margin: 0;       /* Remove default margin */
     padding: 0;      /* Remove default padding */
-    background-color: #282A36;
+    background-color: var(--color-background);
     font-family: Roboto, sans-serif;
 }
 
