@@ -10,6 +10,8 @@ Serverless quiz app!
 
 </div>
 
+![Screenshot of the beautiful home screen](./screenshot.png)
+
 Features that WILL be implemented:
 
 - [ ] Editing Quizzes
