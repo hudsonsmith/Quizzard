@@ -20,10 +20,10 @@ cta-modal {
     --cta-modal-dialog-width: 500px;
   
     /* Modal close button. */
-    --cta-modal-close-color: #fff;
-    --cta-modal-close-background-color: #000;
+    --cta-modal-close-color: var(--color-foreground);
+    --cta-modal-close-background-color: var(--color-background);
     --cta-modal-close-border-radius: 50%;
-    --cta-modal-close-box-shadow: 0 0 0 1px #fff;
+    --cta-modal-close-box-shadow: 0 0 0 1px var(--color-foreground);
     --cta-modal-close-display: block;
     --cta-modal-close-font-family: 'Arial', sans-serif;
     --cta-modal-close-font-size: 23px;
@@ -31,8 +31,25 @@ cta-modal {
     --cta-modal-close-width: 26px;
   
     /* Modal close button - hover. */
-    --cta-modal-close-color-hover: #000;
-    --cta-modal-close-background-color-hover: #fff;
-    --cta-modal-close-box-shadow-hover: 0 0 0 1px #000;
+    --cta-modal-close-color-hover: var(--color-background);
+    --cta-modal-close-background-color-hover: var(--color-foreground);
+    --cta-modal-close-box-shadow-hover: 0 0 0 1px var(--color-background);
     color: var(--color-foreground);
   }
+
+cta-modal [slot="modal"] .button-85 {
+  width: 100%;
+}
+
+cta-modal input[type="text"] {
+  width: 100%;
+  height: 2rem;
+  background-color: var(--color-current-line);
+  border: 2px solid var(--color-comment);
+  outline: none;
+  border-radius: 10px;
+  color: var(--color-foreground);
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 15px;
+}
