@@ -1,3 +1,5 @@
+@import url("variables.css");
+
 cta-modal {
     /* Modal overlay. */
     --cta-modal-overlay-background-color: rgba(0, 0, 0, 0.5);
@@ -8,7 +10,7 @@ cta-modal {
     --cta-modal-overlay-z-index: 100000;
   
     /* Modal window. */
-    --cta-modal-dialog-background-color: ;
+    --cta-modal-dialog-background-color: var(--color-background);
     --cta-modal-dialog-border-radius: 5px;
     --cta-modal-dialog-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
     --cta-modal-dialog-padding-top: 20px;
@@ -32,4 +34,5 @@ cta-modal {
     --cta-modal-close-color-hover: #000;
     --cta-modal-close-background-color-hover: #fff;
     --cta-modal-close-box-shadow-hover: 0 0 0 1px #000;
+    color: var(--color-foreground);
   }

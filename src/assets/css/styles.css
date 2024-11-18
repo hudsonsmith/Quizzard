@@ -24,8 +24,8 @@
 /* Sidebar styles */
 #sidebar {
     width: 250px;                 /* Fixed width for the sidebar */
-    background-color: #282A36;    /* Optional: Sidebar background */
-    border-right: solid .4rem #44475A;
+    background-color: var(--color-background);    /* Optional: Sidebar background */
+    border-right: solid .4rem var(--color-current-line);
 }
 
 /* Main content styles */

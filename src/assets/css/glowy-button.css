@@ -1,3 +1,4 @@
+@import url("variables.css");
 
 /* CSS */
 .button-85 {
@@ -7,7 +8,7 @@
   border: none;
   outline: none;
   color: rgb(255, 255, 255);
-  background: #111;
+  background: var(--color-background);
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -61,7 +62,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #222;
+  background: var(--color-background);
   left: 0;
   top: 0;
   border-radius: 5px;
