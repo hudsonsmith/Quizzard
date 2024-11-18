@@ -59,12 +59,10 @@ constants.DELETE_QUIZ_BUTTON.addEventListener("click", (event) => {
     constants.DELETE_QUIZ_MODAL.setAttribute("active", "true");
 });
 
+
+constants.DELETE_QUIZ_FORM.addEventListener("submit", pages.deleteQuiz);
+
 document.addEventListener("DOMContentLoaded", () => {
     quizzes.loadQuizzes();
 });
 
-
-constants.DELETE_QUIZ_FORM.addEventListener("submit", (event) => {
-    event.preventDefault();
-    pages.deleteQuiz(event);
-});

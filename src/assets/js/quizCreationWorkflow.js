@@ -48,12 +48,17 @@ export const appendToQuizList = (uuid) => {
 export const loadQuizzes = () => {
     const quizzes = JSON.parse(localStorage.getItem(constants.LOCAL_STORAGE_QUIZZES_KEY));
 
+    // Clear the quiz list if it has quizzes in it already.
+    constants.QUIZ_LIST.innerHTML = "";
+
     for (const uuid in quizzes) {
         console.log(`uuid: ${uuid}`)
         appendToQuizList(uuid);
     }
 }
 
+
+// Clears quizzes from LOCAL STORAGE.
 export const clearQuizzes = () => {
     localStorage.removeItem(constants.LOCAL_STORAGE_QUIZZES_KEY);
 

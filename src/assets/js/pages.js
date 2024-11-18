@@ -1,4 +1,5 @@
 import * as constants from "./constants.js";
+import {loadQuizzes} from "./quizCreationWorkflow.js";
 
 // Open quiz and edit the main content to reflect page changes.
 export const openQuiz = (uuid) => {
@@ -34,12 +35,15 @@ export const backToHome = () => {
 }
 
 export const deleteQuiz = (event) => {
-    alert();
+    event.preventDefault();
+    constants.DELETE_QUIZ_MODAL.setAttribute("active", "false");
 
     let data = JSON.parse(localStorage.getItem(constants.LOCAL_STORAGE_QUIZZES_KEY));
 
     const current_uuid = constants.QUIZ_PAGE.getAttribute("data-current-quiz-uuid");
     delete data[current_uuid];
 
-    localStorage.setItem(constants.LOCAL_STORAGE_QUIZZES_KEY, data);
+    localStorage.setItem(constants.LOCAL_STORAGE_QUIZZES_KEY, JSON.stringify(data));
+    loadQuizzes();
+    backToHome();
 }
