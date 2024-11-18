@@ -7,8 +7,9 @@
 }
 
 .button-container .button-85 {
-    height: 2rem;
+    height: 3rem;
     width: 30rem;
+    font-size: 1.25rem;
 }
 
 .quote {

@@ -17,7 +17,9 @@
 @import url("cta-modal.css");
 @import url("glowy-button.css");
 
-
+body {
+    color: var(--color-foreground);
+}
 .container {
     display: flex;
     height: 100vh;                /* Full height of the viewport */

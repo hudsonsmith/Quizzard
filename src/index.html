@@ -17,9 +17,17 @@
 
         <div class="main-content">
             <div id="quiz-page" style="display: none;">
-                <p><a id="back-to-home" href="#">Back to home</a> | <a onclick="addQuestionEvent();" href="#">Add Question</a></p>
+                <center>
+                    <h1 id="quiz-page-name"></h1>
+                </center>
                 <hr>
-                <h1 id="quiz-page-name"></h1>
+                <div id="quiz-page-button-container" align="center">
+                    <p>
+                        <button id="back-to-home" class="button-85">Back to home</button>
+                        <button class="button-85" id="quiz-page-add-question">Edit</button>
+                        <button class="button-85" id="play-quiz">Play Quiz!</button>
+                    </p>
+                </div>
                 <hr>
 
                 <ul id="quiz-page-questions">
