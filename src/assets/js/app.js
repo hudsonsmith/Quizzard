@@ -66,3 +66,4 @@ document.addEventListener("DOMContentLoaded", () => {
     quizzes.loadQuizzes();
 });
 
+constants.TOGGLE_SIDEBAR_BUTTON.addEventListener("click", quizzes.toggleQuizzes);

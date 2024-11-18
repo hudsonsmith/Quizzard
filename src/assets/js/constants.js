@@ -12,3 +12,7 @@ export const BACK_TO_HOME_BUTTON = document.getElementById("back-to-home");
 export const DELETE_QUIZ_FORM = document.getElementById("delete-quiz-form");
 export const DELETE_QUIZ_BUTTON = document.getElementById("delete-current-quiz");
 export const DELETE_QUIZ_MODAL = document.getElementById("delete-quiz-modal");
+
+export const SIDEBAR = document.getElementById("sidebar");
+
+export const TOGGLE_SIDEBAR_BUTTON = document.getElementById("toggle-sidebar");

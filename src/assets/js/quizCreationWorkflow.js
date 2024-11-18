@@ -66,3 +66,8 @@ export const clearQuizzes = () => {
         console.log(item);
     }
 }
+
+export const toggleQuizzes = () => {
+    constants.SIDEBAR.style.display = 
+        constants.SIDEBAR.style.display === "block" ? "none" : "block";
+}

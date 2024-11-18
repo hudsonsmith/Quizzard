@@ -2,6 +2,7 @@
 
 /* Sidebar styles */
 #sidebar {
+    display: none;
     width: 250px;
     background-color: var(--color-background);
     border-right: solid .4rem var(--color-current-line);
