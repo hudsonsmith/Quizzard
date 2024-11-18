@@ -54,6 +54,17 @@ constants.BACK_TO_HOME_BUTTON.addEventListener("click", (event) => {
     pages.backToHome();
 });
 
+
+constants.DELETE_QUIZ_BUTTON.addEventListener("click", (event) => {
+    constants.DELETE_QUIZ_MODAL.setAttribute("active", "true");
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     quizzes.loadQuizzes();
+});
+
+
+constants.DELETE_QUIZ_FORM.addEventListener("submit", (event) => {
+    event.preventDefault();
+    pages.deleteQuiz(event);
 });

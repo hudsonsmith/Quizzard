@@ -28,6 +28,7 @@ export const appendToQuizList = (uuid) => {
         */
 
     const newSelector = document.createElement("li");
+    newSelector.classList.add("button-85");
     
     // Add properties that will passed onclick.
     newSelector.setAttribute("uuid", uuid);

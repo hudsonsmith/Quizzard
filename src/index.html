@@ -14,7 +14,8 @@
         </div>
 
         <div class="main-content">
-            <div id="quiz-page" style="display: none;">
+
+            <div id="quiz-page" style="display: none;" data-current-quiz-uuid="">
                 <center>
                     <h1 id="quiz-page-name"></h1>
                 </center>
@@ -24,12 +25,22 @@
                         <button id="back-to-home" class="button-85">Back to home</button>
                         <button class="button-85" id="quiz-page-add-question">Edit</button>
                         <button class="button-85" id="play-quiz">Play Quiz!</button>
+                        <button class="button-85" id="delete-current-quiz">Delete</button>
                     </p>
                 </div>
                 <hr>
 
                 <ul id="quiz-page-questions">
                 </ul>
+                  <cta-modal id="delete-quiz-modal">
+                    <div slot="modal">
+                      <h2>Are you sure?</h2>
+                      <form action="/delete" method="post" id="delete-quiz-form">
+                          <button class="button-85" type="submit">Yes, I want to delete it.</button>
+                      </form>
+                    </div>
+
+                  </cta-modal>
 
             </div>
 

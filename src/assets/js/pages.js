@@ -16,6 +16,7 @@ export const openQuiz = (uuid) => {
 
     constants.QUIZ_PAGE.querySelector("#quiz-page-name").innerText = quiz["name"];
     constants.QUIZ_PAGE.querySelector("#quiz-page-questions").innerText = "questions here."
+    constants.QUIZ_PAGE.setAttribute("data-current-quiz-uuid", uuid);
 
     console.log(quiz);
 }
@@ -30,4 +31,15 @@ export const openQuizEvent = (event) => {
 export const backToHome = () => {
     constants.QUIZ_PAGE.style.display = "none";
     constants.SPLASH_SCREEN.style.display = "";
+}
+
+export const deleteQuiz = (event) => {
+    alert();
+
+    let data = JSON.parse(localStorage.getItem(constants.LOCAL_STORAGE_QUIZZES_KEY));
+
+    const current_uuid = constants.QUIZ_PAGE.getAttribute("data-current-quiz-uuid");
+    delete data[current_uuid];
+
+    localStorage.setItem(constants.LOCAL_STORAGE_QUIZZES_KEY, data);
 }
