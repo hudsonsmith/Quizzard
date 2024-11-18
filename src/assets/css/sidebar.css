@@ -8,7 +8,16 @@
 }
 
 #sidebar li {
-    height: 2rem;
+    height: 3rem;
     margin-bottom: 1rem;
-    background-color: var(--color-comment);
+    border: .25rem solid var(--color-comment);
+    margin-bottom: 1rem;
+    align-content: center;
+    justify-content: center;
+}
+
+#sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
