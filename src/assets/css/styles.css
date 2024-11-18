@@ -13,6 +13,7 @@
 
 @import url("splash-screen.css");
 @import url("quiz-page.css");
+@import url("sidebar.css");
 @import url("cta-modal.css");
 @import url("glowy-button.css");
 
@@ -22,12 +23,6 @@
     height: 100vh;                /* Full height of the viewport */
 }
 
-/* Sidebar styles */
-#sidebar {
-    width: 250px;                 /* Fixed width for the sidebar */
-    background-color: var(--color-background);    /* Optional: Sidebar background */
-    border-right: solid .4rem var(--color-current-line);
-}
 
 /* Main content styles */
 .main-content {
